@@ -42,7 +42,7 @@ public class SpringJdbcCommonYuanApplicationTests {
 	@Test
 	public void saveOrUpdate() {
 		SysUser sysUser = new SysUser();
-		sysUser.setId(155L);
+		sysUser.setId(9L);
 		sysUser.setRealName("222");
 		sysUserDao.saveOrUpdate(sysUser);
 	}

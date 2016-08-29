@@ -5,7 +5,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javax.persistence.GenerationType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -223,12 +222,12 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
 	 */
 	private boolean existEntity(Long id) throws Exception {
 		String sql = sqlUtil.existSql(entityClass, id);
-		Object obj = JdbcTemplate.queryForObject(sql, Object.class);
-		if (null != obj) {
+		try {
+			JdbcTemplate.queryForMap(sql);
 			return true;
-		} else {
+		} catch (Exception e) {
 			return false;
 		}
 	}
-
+	
 }

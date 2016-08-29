@@ -274,7 +274,7 @@ public class SqlUtil {
 	protected String existSql(Class<?> entityClass, Long id) throws Exception {
 		String tableName = getTableName(entityClass);
 		String primaryKeyName = primaryKeyName(entityClass);
-		String sql = "select 1 from " + tableName + " where " + primaryKeyName + " = " + id;
+		String sql = "select 1 from " + tableName + " where " + primaryKeyName + " = '" + id+"'";
 		return sql;
 	}
 
